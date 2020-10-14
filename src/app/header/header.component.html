@@ -1,16 +1,16 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:20%;margin-right:20%;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" id="logo">Curiosity</a>
+      <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Główna</a></li>
-      <li><a href="#">Wyróżnione</a></li>
-      <li><a href="#">Dodaj</a></li>
+      <li routerLinkActive="active"><a routerLink="/Główna" >Główna</a></li>
+      <li routerLinkActive="active"><a routerLink="/Wyróżnione" >Wyróżnione</a></li>
+      <li routerLinkActive="active"><a routerLink="/Dodaj" >Dodaj</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+      <li routerLinkActive="active"><a routerLink="/Rejestracja" ><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
+      <li routerLinkActive="active"><a routerLink="/Logowanie" ><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
     </ul>
   </div>
 </nav>
