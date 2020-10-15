@@ -1,16 +1,24 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" style="margin-left:20%;margin-right:20%;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
-    </div>
+
+  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top" style="margin-left:20%;margin-right:20%; ">
+    <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
     <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a routerLink="/Główna">Główna</a></li>
-      <li routerLinkActive="active"><a routerLink="/Wyróżnione">Wyróżnione</a></li>
-      <li routerLinkActive="active"><a routerLink="/Dodaj">Dodaj</a></li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" routerLink="/Główna">Główna</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
+      </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="active"><a routerLink="/Rejestracja"><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
-      <li routerLinkActive="active"><a routerLink="/Logowanie"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
-    </ul>
-  </div>
-</nav>
+      <ul class="nav navbar-nav ml-auto ">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Rejestracja"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Logowanie"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
+      </li>
+      </ul>
+    
+  </nav>
