@@ -2,5 +2,6 @@
   background-color: #000;
 }
 .nav-item.active {
-  background-color: #2a1212;
+  text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
+ 
 }
