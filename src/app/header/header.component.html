@@ -1,24 +1,66 @@
 
-  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top" style="margin-left:20%;margin-right:20%; ">
-    <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" routerLink="/Główna">Główna</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
-      </li>
-    </ul>
-      <ul class="nav navbar-nav ml-auto ">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Rejestracja"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Logowanie"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
-      </li>
-      </ul>
-    
-  </nav>
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top" style="margin-left:20%;margin-right:20%; ">
+  <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item " routerLinkActive="active">
+      <a class="nav-link" routerLink="/Główna">Główna</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto ">
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#rejestracja" id="userLog"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#logowanie" id="userLog"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
+    </li>
+  </ul>
+
+</nav>
+
+<!-- Rejestracja -->
+<div class="modal fade" id="rejestracja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Logowanie -->
+<div class="modal fade" id="logowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

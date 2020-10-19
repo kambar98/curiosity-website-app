@@ -5,3 +5,10 @@
   text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
  
 }
+.nav-item:hover {
+  text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
+}
+
+#userLog:hover {
+  text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
+}
