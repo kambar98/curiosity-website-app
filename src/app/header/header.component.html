@@ -24,28 +24,48 @@
 </nav>
 
 <!-- Rejestracja -->
-<div class="modal fade" id="rejestracja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="rejestracja"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="RegistrationTitle">Rejestracja</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-        ...
+        <div class="modal-body ">
+          <div class="md-form ">
+            <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserName">Imię:</label>
+            <input type="text" id="UserName" class="form-control validate">
+            
+          </div>
+          <hr />
+          <div class="md-form ">
+            <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="UserEmail">Email:</label>
+            <input type="email" id="UserEmail" class="form-control validate">
+            
+          </div>
+          <hr />
+          <div class="md-form">
+            <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="UserPass">Hasło:</label>
+            <input type="password" id="UserPass" class="form-control validate">
+            
+          </div>
+
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-primary">Wyślij</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Logowanie -->
-<div class="modal fade" id="logowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logowanie" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
