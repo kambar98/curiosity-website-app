@@ -39,7 +39,7 @@
       <div class="modal-body ">
 
 
-        <form>
+        <form #authRegistration="ngForm">
           <div class="form-group">
             <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserNick">Nick:</label>
             <input type="text"
@@ -47,6 +47,7 @@
                    placeholder="Minimum 3 znaki"
                    class="form-control validate"
                    name="Nick"
+                   ngModel
                    required
                    minlength="3">
           </div>
@@ -57,6 +58,7 @@
                    id="UserEmail"
                    placeholder="przykład@test.pl"
                    class="form-control validate"
+                   ngModel
                    name="email"
                    required
                    email>
@@ -69,6 +71,7 @@
                    placeholder="Minimum 6 znaków"
                    class="form-control validate"
                    name="password"
+                   ngModel
                    required
                    minlength="6">
           </div>
@@ -78,7 +81,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
-        <button type="button" class="btn btn-primary">Zarejestruj się</button>
+        <button type="button" class="btn btn-primary" [disabled]="!authRegistration.valid">Zarejestruj się</button>
       </div>
 
     </div>
@@ -95,23 +98,38 @@
 
 
       <div class="modal-body ">
-        <form>
+        <form #authLogin="ngForm">
 
           <div class="form-group">
             <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="LogUserEmail">Email:</label>
-            <input type="email" id="LogUserEmail" placeholder="przykład@test.pl" class="form-control validate">
+            <input type="email"
+                   id="LogUserEmail"
+                   placeholder="przykład@test.pl"
+                   class="form-control validate"
+                   ngModel
+                   name="LogEmail"
+                   required
+                   email >
           </div>
           <hr />
           <div class="form-group">
             <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="LogUserPass">Hasło:</label>
-            <input type="password" id="LogUserPass" placeholder="Minimum 6 znaków" class="form-control validate">
+            <input type="password"
+                   id="LogUserPass"
+                   placeholder="Minimum 6 znaków"
+                   class="form-control validate"
+                   ngModel
+                   required
+                   minlength="6"
+                   name="LogPassword"
+                   >
           </div>
         </form>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
-        <button type="button" class="btn btn-primary">Zaloguj się</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" >Zamknij</button>
+        <button type="button" class="btn btn-primary" [disabled]="!authLogin.valid" >Zaloguj się</button>
       </div>
     </div>
   </div>
