@@ -1,63 +1,86 @@
 
-<nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top" style="margin-left:20%;margin-right:20%; ">
-  <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
-  <ul class="nav navbar-nav">
-    <li class="nav-item " routerLinkActive="active">
-      <a class="nav-link" routerLink="/Główna">Główna</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
-    </li>
-  </ul>
-  <ul class="nav navbar-nav ml-auto ">
-    <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#rejestracja" id="userLog"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#logowanie" id="userLog"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark fixed-top" style="margin-left:20%;margin-right:20%; ">
+    <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" routerLink="/Główna">Główna</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto ">
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#rejestracja" id="userLog"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logowanie" id="userLog"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
+      </li>
+    </ul>
+  </nav>
 
-</nav>
+
+
+
 
 <!-- Rejestracja -->
-<div class="modal fade" id="rejestracja"  role="dialog" aria-hidden="true">
+
+<div class="modal fade" id="rejestracja" role="dialog" tabindex="-1" aria-labelledby="RegistrationTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="RegistrationTitle">Rejestracja</h5>
-
       </div>
 
-      <div class="modal-body">
-        <div class="modal-body ">
-          <div class="md-form ">
+      <div class="modal-body ">
+
+
+        <form>
+          <div class="form-group">
             <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserNick">Nick:</label>
-            <input type="text" id="UserNick" placeholder="Minimum 3 znaki" class="form-control validate">
-            
+            <input type="text"
+                   id="UserNick"
+                   placeholder="Minimum 3 znaki"
+                   class="form-control validate"
+                   name="Nick"
+                   required
+                   minlength="3">
           </div>
           <hr />
-          <div class="md-form ">
+          <div class="form-group">
             <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="UserEmail">Email:</label>
-            <input type="email" id="UserEmail" placeholder="przykład@test.pl" class="form-control validate">
-            
+            <input type="email"
+                   id="UserEmail"
+                   placeholder="przykład@test.pl"
+                   class="form-control validate"
+                   name="email"
+                   required
+                   email>
           </div>
           <hr />
-          <div class="md-form">
+          <div class="form-group">
             <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="UserPass">Hasło:</label>
-            <input type="password" id="UserPass" placeholder="Minimum 6 znaków" class="form-control validate">
-            
+            <input type="password"
+                   id="UserPass"
+                   placeholder="Minimum 6 znaków"
+                   class="form-control validate"
+                   name="password"
+                   required
+                   minlength="6">
           </div>
+        </form>
 
-        </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
         <button type="button" class="btn btn-primary">Zarejestruj się</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -70,22 +93,22 @@
         <h5 class="modal-title" id="LoginTitle">Logowanie</h5>
       </div>
 
-      <div class="modal-body">
-        <div class="modal-body ">
-          <div class="md-form ">
-            <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="UserEmail">Email:</label>
-            <input type="email" id="UserEmail" placeholder="przykład@test.pl" class="form-control validate">
 
+      <div class="modal-body ">
+        <form>
+
+          <div class="form-group">
+            <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="LogUserEmail">Email:</label>
+            <input type="email" id="LogUserEmail" placeholder="przykład@test.pl" class="form-control validate">
           </div>
           <hr />
-          <div class="md-form">
-            <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="UserPass">Hasło:</label>
-            <input type="password" id="UserPass" placeholder="Minimum 6 znaków" class="form-control validate">
-
+          <div class="form-group">
+            <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="LogUserPass">Hasło:</label>
+            <input type="password" id="LogUserPass" placeholder="Minimum 6 znaków" class="form-control validate">
           </div>
-
-        </div>
+        </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
         <button type="button" class="btn btn-primary">Zaloguj się</button>
@@ -93,3 +116,4 @@
     </div>
   </div>
 </div>
+
