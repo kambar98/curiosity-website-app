@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthService, AuthResponseData } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,16 @@ import { AuthService } from './auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLogin = false;
+  isLogin = true;
   error: string = null;
   constructor(private authService: AuthService) { }
+
+  onLogin() {
+    this.isLogin = true;
+  }
+  onSignIn() {
+    this.isLogin = false;
+  }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -20,27 +28,28 @@ export class HeaderComponent implements OnInit {
     const nick = form.value.nick;
     const email = form.value.email;
     const password = form.value.password;
+
+    let authObs: Observable<AuthResponseData>;
+
     if (this.isLogin) {
+      authObs = this.authService.login(email, password);
 
     } else {
-      this.authService.signup(email, password, nick).subscribe(resData => {
-        console.log(resData);
-      },
-        errorResponse => {
-          console.log(errorResponse);
-          switch (errorResponse.error.error.message) {
-            case 'EMAIL_EXISTS':
-              this.error='Ten email jest już używany'
-          }
-          
-        }
-      );
-
-      form.reset();
+      authObs = this.authService.signup(email, password, nick);
     }
+
+    authObs.subscribe(resData => {
+      console.log(resData);
+    },
+      errorMessage => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+      }
+    );
+
+    form.reset();
   }
 
-  
 
   ngOnInit(): void {
   }
