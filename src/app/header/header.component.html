@@ -37,16 +37,18 @@
       </div>
 
       <div class="modal-body ">
+        <div class="alert alert-danger" *ngIf="error">
+          <p>{{error}}</p>
+        </div>
 
-
-        <form #authRegistration="ngForm">
+        <form #authRegistration="ngForm" (ngSumbit)="onSubmit(authRegistration)">
           <div class="form-group">
             <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserNick">Nick:</label>
             <input type="text"
                    id="UserNick"
                    placeholder="Minimum 3 znaki"
                    class="form-control validate"
-                   name="Nick"
+                   name="nick"
                    ngModel
                    required
                    minlength="3">
@@ -81,8 +83,9 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
-        <button type="button" class="btn btn-primary" [disabled]="!authRegistration.valid">Zarejestruj się</button>
+        <button type="button" class="btn btn-primary" [disabled]="!authRegistration.valid" (click)="onSubmit(authRegistration)">Zarejestruj się</button>
       </div>
+
 
     </div>
   </div>
@@ -98,7 +101,12 @@
 
 
       <div class="modal-body ">
-        <form #authLogin="ngForm">
+
+        <div class="alert alert-danger" *ngIf="error">
+          <p>{{error}}</p>
+        </div>
+
+        <form #authLogin="ngForm" (ngSumbit)="onSubmit(authLogin)">
 
           <div class="form-group">
             <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="LogUserEmail">Email:</label>
@@ -109,7 +117,7 @@
                    ngModel
                    name="LogEmail"
                    required
-                   email >
+                   email>
           </div>
           <hr />
           <div class="form-group">
@@ -121,15 +129,14 @@
                    ngModel
                    required
                    minlength="6"
-                   name="LogPassword"
-                   >
+                   name="LogPassword">
           </div>
         </form>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal" >Zamknij</button>
-        <button type="button" class="btn btn-primary" [disabled]="!authLogin.valid" >Zaloguj się</button>
+        <button type="button" class="btn btn-primary" [disabled]="!authLogin.valid" (click)="onSubmit(authLogin)" >Zaloguj się</button>
       </div>
     </div>
   </div>

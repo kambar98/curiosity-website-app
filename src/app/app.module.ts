@@ -9,6 +9,7 @@ import { AwardedComponent } from './awarded/awarded.component';
 import { AddComponent } from './add/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
   providers: [],
