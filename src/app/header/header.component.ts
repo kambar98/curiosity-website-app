@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,8 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   isLogin = true;
   error: string = null;
+
+
   constructor(private authService: AuthService) { }
 
   onLogin() {
@@ -42,6 +45,7 @@ export class HeaderComponent implements OnInit {
 
     authObs.subscribe(resData => {
       console.log(resData);
+      
     },
       errorMessage => {
         console.log(errorMessage);
