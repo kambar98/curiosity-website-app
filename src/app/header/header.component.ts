@@ -15,9 +15,11 @@ export class HeaderComponent implements OnInit {
 
   onLogin() {
     this.isLogin = true;
+    this.error= null;
   }
   onSignIn() {
     this.isLogin = false;
+    this.error = null;
   }
 
   onSubmit(form: NgForm) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
@@ -48,8 +48,28 @@ export class AuthService {
       email: email,
       password: password,
       returnSecureToken: true
-    });
+    }).pipe(catchError(errorResponse => {
+      let errorMessage = 'Wystąpił nieznany błąd';
+      if (!errorResponse.error || !errorResponse.error.error) {
+        return throwError(errorMessage);
+
+      }
+      switch (errorResponse.error.error.message) {
+        case 'EMAIL_NOT_FOUND':
+          errorMessage = 'Wskazany email nie istnieje'
+          break;
+        case 'INVALID_PASSWORD':
+          errorMessage = 'Nieprawidłowe hasło'
+          break;
+        
+      }
+      return throwError(errorMessage);
+    })
+    );;
   }
 
+  private handleError(errorRes: HttpErrorResponse) {
+
+  }
 }
 
