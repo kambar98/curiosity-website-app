@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 declare var $: any;
 
@@ -10,9 +10,11 @@ declare var $: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isLogin = true;
+  isAuth = false;
   error: string = null;
+  private userSub: Subscription;
   
 
 
@@ -68,7 +70,13 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuth = !!user;
+    });
   }
 
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
+  }
 
 }

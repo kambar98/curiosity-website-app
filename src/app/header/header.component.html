@@ -8,16 +8,19 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+        <a class="nav-link" routerLink="/Dodaj" >Dodaj</a>
       </li>
     </ul>
     <ul class="nav navbar-nav ml-auto ">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuth">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#rejestracja" id="userLog" (click)="onSignIn()"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuth">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#logowanie" id="userLog" (click)="onLogin()"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuth">
+        <a class="nav-link" href="#"  id="logOut" ><i class="fas fa-door-open"></i> Wyloguj się</a>
       </li>
     </ul>
   </nav>
