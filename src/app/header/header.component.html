@@ -41,7 +41,7 @@
           <p>{{error}}</p>
         </div>
 
-        <form #authRegistration="ngForm" (ngSumbit)="onSubmit(authRegistration)">
+        <form #authRegistration="ngForm" (ngSumbit)="onSubmit(authRegistration)" >
           <div class="form-group">
             <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserNick">Nick:</label>
             <input type="text"
@@ -106,7 +106,7 @@
           <p>{{error}}</p>
         </div>
 
-        <form #authLogin="ngForm" (ngSumbit)="onSubmit(authLogin)">
+        <form #authLogin="ngForm" (ngSumbit)="onSubmit(authLogin)" id="LG">
 
           <div class="form-group">
             <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="LogUserEmail">Email:</label>

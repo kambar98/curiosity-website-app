@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   isLogin = true;
   error: string = null;
+  
 
 
   constructor(private authService: AuthService) { }
@@ -36,16 +38,23 @@ export class HeaderComponent implements OnInit {
 
     let authObs: Observable<AuthResponseData>;
 
-    if (this.isLogin) {
+    if (this.isLogin ) {
       authObs = this.authService.login(email, password);
+      
 
     } else {
       authObs = this.authService.signup(email, password, nick);
+      
     }
 
     authObs.subscribe(resData => {
       console.log(resData);
-      
+      if (this.error == null) {
+        $('#rejestracja').modal('hide');
+        $('#logowanie').modal('hide');
+
+      }
+
     },
       errorMessage => {
         console.log(errorMessage);
@@ -54,6 +63,7 @@ export class HeaderComponent implements OnInit {
     );
 
     form.reset();
+
   }
 
 
