@@ -9,6 +9,7 @@ import { AddComponent } from './add/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     HeaderComponent,
     AwardedComponent,
-    AddComponent
+    AddComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
