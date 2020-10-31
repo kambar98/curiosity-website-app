@@ -1,6 +1,17 @@
 <div class="container">
   <div class="d-flex flex-column">
-   <app-header></app-header>
-   <router-outlet></router-outlet>
+    <app-header></app-header>
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-9 px-0" >
+          <router-outlet></router-outlet>
+        </div>
+        <div class="col-3 pr-0 " >
+          <app-sidebar></app-sidebar>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
