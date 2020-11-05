@@ -21,10 +21,15 @@
          <!-- <input type="file" class="custom-file-input" id="inputGroupFile">
                     <label class="custom-file-label" for="inputGroupFile" aria-describedby="inputGroupFileAddon">Choose image</label>-->
         </div>
+        <div class="custom-file">
+          <input type="file" name="" id="file" hidden  (change)="onFileSelected($event)"/>
+          <label for="file" id="selector"> Wybierz plik</label>
+        </div>
 
         <button class="btn btn-success "
                 type="submit"
-                [disabled]="!postForm.valid">
+                [disabled]="postForm.valid"
+               (click)="upload()" >
           Dodaj post
         </button>
       </form>
