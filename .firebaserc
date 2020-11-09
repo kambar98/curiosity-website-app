@@ -1,5 +1,11 @@
 {
-  "projects": {
-    "default": "curiosity-97ecf"
+  "targets": {
+    "curiosity-97ecf": {
+      "hosting": {
+        "curiosity": [
+          "curiosity-97ecf"
+        ]
+      }
+    }
   }
 }

@@ -11,6 +11,15 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +35,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ReactiveFormsModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     
   ],
   providers: [],

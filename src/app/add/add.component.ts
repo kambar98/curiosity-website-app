@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-declare var $: any;
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
+import { AddService } from './add.service';
 
 @Component({
   selector: 'app-add',
@@ -9,47 +10,66 @@ declare var $: any;
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
+  imgSrc: string;
+  selectedImage: any = null;
+  isSubmitted: boolean;
 
-  constructor(private http: HttpClient) { }
+  formTemplate = new FormGroup({
+    caption: new FormControl('', Validators.required),
+    imageUrl: new FormControl('', Validators.required),
+  })
 
-  ngOnInit(): void {
+
+  constructor(private storage: AngularFireStorage, private service: AddService) { }
+
+  ngOnInit() {
+    this.service.getImageDetailList();
+    this.resetForm();
   }
-  selectedFile: File = null;
 
-  onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
+  showPreview(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+    else {
+      this.imgSrc = '/assets/image_placeholder.jpg';
+      this.selectedImage = null;
+    }
   }
 
-  upload() {
-    const fd = new FormData();
-    /*fd.append('image', this.selectedFile, this.selectedFile.name);*/
-    this.http.post('https://curiosity-97ecf.firebaseio.com/posts/add', this.selectedFile).subscribe(res => {
-      console.log(res);
-    })
+  onSubmit(formValue) {
+    this.isSubmitted = true;
+    if (this.formTemplate.valid) {
+      var filePath = `posty/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filePath);
+      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            formValue['imageUrl'] = url;
+            this.service.insertImageDetails(formValue);
+            this.resetForm();
+          })
+        })
+      ).subscribe();
+    }
+
   }
-/*  loader(e) {
-    let file = e;
-    let show = "<span> Selected file: <span>" + file
-    let output = document.getElementById("selector");
+get formControls() {
+    return this.formTemplate['controls'];
+  }
 
-    output.innerHTML = show;
-    output.classList.add("active");
-    let fileInput = document.getElementById("file");
-    fileInput.addEventListener("change", file);
+  resetForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      caption: '',
+      imageUrl: '',
+    });
+    this.imgSrc = '/assets/image_placeholder.jpg';
+    this.selectedImage = null;
+    this.isSubmitted = false;
+  }
 
-  }*/
-
-/*  var loader = function (e) {
-    let file = e.targets.files;
-    let show = "<span> Selected file: <span>" + file[0].na
-
-    let output = document.getElementById("selector");
-    output.innerHTML = show;
-    output.classList.add("active");
-};
-
-let fileInput = document.getElementById("file");
-fileInput.addEventListener("change", loader);
-
-*/
 }
