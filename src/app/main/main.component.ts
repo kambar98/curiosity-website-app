@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
       list => {
 
         this.imageList = list.map(item => { return item.payload.val(); });
-        this.rowIndexArray = Array.from(Array(Math.ceil((this.imageList.length + 1))).keys());
+        this.rowIndexArray = Array.from(Array(Math.ceil((this.imageList.length))).keys());
       }
     );
   }

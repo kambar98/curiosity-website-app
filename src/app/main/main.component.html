@@ -2,8 +2,7 @@
   <tr *ngFor="let i of rowIndexArray">
     <td>
       <div class="imagebox">
-
-        <img [src]="imageList[i+1].imageUrl" class="img-fluid">
+         <img [src]="imageList[i].imageUrl" class="img-fluid" style="height:400px;width:500px;">
         <span class="imagebox-desc" style="color:red;">{{imageList[i].caption}}</span>
       </div>
     </td>
