@@ -25,6 +25,9 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.service.getImageDetailList();
     this.resetForm();
+
+
+
   }
 
   showPreview(event: any) {
