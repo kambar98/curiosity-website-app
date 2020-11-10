@@ -1,28 +1,19 @@
-
-
-<div class="card" style="width:25rem">
-  <div class="card-body">
+<div class="card  " style="    width: 25rem;margin-top: 2rem;margin-left: 11rem;background-color: #1f1f1f;">
+ <div class="card-body">
     <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
       <div class="text-center">
-        <img [src]="imgSrc" style=" width: 350px; height:250px; " (click)="fileUploader.click()">
+        <img [src]="imgSrc" style=" width: 350px; height:250px;border: 2px solid black; "  (click)="fileUploader.click()">
       </div>
       <div class="form-group">
-        <label>Select file to upload</label>
-        <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="imageUrl"
-               (change)="showPreview($event)"  required>
-        <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">
-          This field is required.
-        </div>
+        <input type="file" accept="image/*" class="form-control mt-4" #fileUploader formControlName="imageUrl"
+               (change)="showPreview($event)" style="padding-bottom: 2.3rem;  border: 2px solid black;" required>
       </div>
       <div class="form-group">
-        <input class="form-control" formControlName="caption" placeholder="Caption"  required>
-        <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required">
-          This field is required.
-        </div>
+        <input class="form-control" formControlName="caption" placeholder="Tytuł" style=" border: 2px solid black;" required>
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <button type="submit" class="btn btn-success btn-block float-right" [disabled]="!formTemplate.valid">Submit</button>
+          <button type="submit" class="btn btn-success btn-block float-right" [disabled]="!formTemplate.valid" style=" border: 2px solid black;">Opublikuj</button>
         </div>
       </div>
     </form>
