@@ -1,11 +1,15 @@
-<table *ngIf="imageList">
+<table  class="table text-center table-dark my-5 " style="background-color: #1f1f1f; color:silver; " *ngIf="imageList">
+
   <tr *ngFor="let i of rowIndexArray">
-    <td>
-      <div class="imagebox">
-         <img [src]="imageList[i].imageUrl" class="img-fluid" style="height:400px;width:500px;">
-        <span class="imagebox-desc" style="color:red;">{{imageList[i].caption}}</span>
+    <td style="border-top:none; border-bottom: 40px solid #2e2e2e">
+    
+      <span style="color:silver; font-size:20px;">{{imageList[i].caption}}</span>
+      <div class="imagebox my-5" style="display:flex; flex-direction:column; align-items:center; ">
+
+        <img [src]="imageList[i].imageUrl" class="img-fluid" style="height:400px;width:500px;">
+
       </div>
     </td>
   </tr>
+  
 </table>
-
