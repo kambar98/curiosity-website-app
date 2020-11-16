@@ -3,15 +3,25 @@
     margin-right:20%;
 }
 
-#logo {
+#logo{
   color: #7c1616;
   transition: color 1.5s;
-  font-weight: bold;
+  font-weight:bolder;
   font-variant: small-caps;
-  font-size: 34px;
-  font-family:'Agency FB';
+  font-size: 36px;
+  font-family: 'Agency FB';
 }
 
   #logo:hover {
+    color: #ff0000;
+  }
+#title {
+  color: #7c1616;
+  transition: color 1.5s;
+  font-variant: small-caps;
+  font-size: 28px;
+  font-family: 'Agency FB';
+}
+  #title:hover {
     color: #ff0000;
   }
