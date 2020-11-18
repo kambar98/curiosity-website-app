@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {  AngularFireList } from '@angular/fire/database';
 import { AddService } from '../../add/add.service';
 
 @Component({
@@ -10,10 +9,10 @@ import { AddService } from '../../add/add.service';
 })
 export class PostsComponent implements OnInit {
   imageList: any[];
-  rowIndexArray: any[];
+  posts: any[];
   imageDetailList: AngularFireList<any>;
 
-  constructor(private service: AddService, private storage: AngularFireStorage, private firebase: AngularFireDatabase) { }
+  constructor(private service: AddService) { }
 
 
   ngOnInit() {
@@ -23,7 +22,7 @@ export class PostsComponent implements OnInit {
       list => {
 
         this.imageList = list.map(item => { return item.payload.val(); });
-        this.rowIndexArray = Array.from(Array(Math.ceil((this.imageList.length))).keys());
+        this.posts = Array.from(Array(Math.ceil((this.imageList.length))).keys());
       }
     );
   }
