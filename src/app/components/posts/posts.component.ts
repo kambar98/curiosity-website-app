@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
 import {  AngularFireList } from '@angular/fire/database';
 import { AddService } from '../../add/add.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
   imageList: any[];
   posts: any[];
   imageDetailList: AngularFireList<any>;
+  p: number=1;
 
-  constructor(private service: AddService) { }
+  constructor(private service: AddService) {
+  
+  }
 
 
   ngOnInit() {
@@ -23,8 +26,10 @@ export class PostsComponent implements OnInit {
 
         this.imageList = list.map(item => { return item.payload.val(); });
         this.posts = Array.from(Array(Math.ceil((this.imageList.length))).keys());
+        
       }
     );
+   
   }
 
 }

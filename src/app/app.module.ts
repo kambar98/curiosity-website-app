@@ -18,8 +18,8 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './components/posts/posts.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 
 
@@ -32,7 +32,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     AddComponent,
     SidebarComponent,
     PostsComponent,
-    PaginationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +45,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     NoopAnimationsModule,
+    NgxPaginationModule,
+    JwPaginationModule
     
   ],
   providers: [],
