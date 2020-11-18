@@ -16,6 +16,8 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PostsComponent } from './components/posts/posts.component';
 
 
 
@@ -27,7 +29,8 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
     HeaderComponent,
     AwardedComponent,
     AddComponent,
-    SidebarComponent
+    SidebarComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    NoopAnimationsModule,
     
   ],
   providers: [],
