@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PostsComponent } from './components/posts/posts.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 
 
@@ -30,7 +31,8 @@ import { PostsComponent } from './components/posts/posts.component';
     AwardedComponent,
     AddComponent,
     SidebarComponent,
-    PostsComponent
+    PostsComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
