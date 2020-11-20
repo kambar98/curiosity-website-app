@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import {  AngularFireList } from '@angular/fire/database';
 import { AddService } from '../../add/add.service';
 
@@ -11,16 +11,17 @@ export class PostsComponent implements OnInit {
   imageList: any[];
   posts: any[];
   imageDetailList: AngularFireList<any>;
-  p: number=1;
+  p: number = 1;
+  
 
   constructor(private service: AddService) {
-  
+    
   }
 
 
   ngOnInit() {
     this.service.getImageDetailList();
-
+    
     this.service.imageDetailList.snapshotChanges().subscribe(
       list => {
 
@@ -28,6 +29,7 @@ export class PostsComponent implements OnInit {
         this.posts = Array.from(Array(Math.ceil((this.imageList.length))).keys());
         
       }
+    
     );
    
   }
