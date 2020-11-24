@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
-import { Observable, Subscription } from 'rxjs';
-
+import { from, Observable, Subscription } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -15,10 +14,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   error: string = null;
   private userSub: Subscription;
-  
+ 
 
 
   constructor(private authService: AuthService) { }
+
 
   onLogin() {
     this.isLogin = true;
@@ -38,6 +38,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const email = form.value.email;
     const password = form.value.password;
 
+ 
+
     let authObs: Observable<AuthResponseData>;
 
     if (this.isLogin ) {
@@ -51,20 +53,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     authObs.subscribe(resData => {
       console.log(resData);
+      
+     
+      
       if (this.error == null) {
         $('#rejestracja').modal('hide');
         $('#logowanie').modal('hide');
-
+       
       }
 
     },
       errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
+       
       }
+
     );
 
-    form.reset();
+  form.reset();
 
   }
 
@@ -81,5 +88,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onlogout() {
     this.authService.logout();
   }
+  
 
 }

@@ -12,6 +12,7 @@ export interface AuthResponseData {
   expiresIn: string;
   localId: string;
   registered?: boolean;
+  displayName: string;
 }
 
 
@@ -22,12 +23,13 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTime: any;
 
+
   constructor(private http: HttpClient) { }
 
-  signup(email: string, password: string, nick: string) {
+  signup(email: string, password: string, displayName: string) {
     return this.http.post < AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBoYIPz6cs3kYqEyxArWiwBJ4660DoWsYw',
       {
-        nick: nick,
+        displayName: displayName,
         email: email,
         password: password,
         returnSecureToken: true
@@ -45,13 +47,15 @@ export class AuthService {
       return throwError(errorMessage);
     }), tap(responseData => {
       const expirationDate = new Date(new Date().getTime() + +responseData.expiresIn * 1000);
-      const user = new User(responseData.email, responseData.localId, responseData.idToken, expirationDate);
+      const user = new User(responseData.email, responseData.localId, responseData.idToken, expirationDate, responseData.displayName);
       this.user.next(user);
       this.autoLogout(+ responseData.expiresIn * 1000);
+      
       localStorage.setItem('userData', JSON.stringify(user));
-
+     
     })
     );
+    
   }
 
   login(email: string, password: string) {
@@ -77,10 +81,12 @@ export class AuthService {
       return throwError(errorMessage);
     }),tap(responseData => {
       const expirationDate = new Date(new Date().getTime() + + responseData.expiresIn * 1000);
-      const user = new User(responseData.email, responseData.localId, responseData.idToken, expirationDate);
+      const user = new User(responseData.email, responseData.localId, responseData.idToken, expirationDate, responseData.displayName);
       this.user.next(user);
-      this.autoLogout(+ responseData.expiresIn*1000);
+      this.autoLogout(+ responseData.expiresIn * 1000);
+     
       localStorage.setItem('userData', JSON.stringify(user));
+      
     })
     );
   }
@@ -102,25 +108,28 @@ export class AuthService {
 
   autoLogin() {
 
-    const userData:{
+    const userData: {
+      displayName: string;
     email: string;
     id: string;
     _token: string;
-    _tokenExpirationDate: string;
+      _tokenExpirationDate: string;
+
     } = JSON.parse(localStorage.getItem('userData'));
 
     if (!userData) {
       return;
     }
-    const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
+    const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate), userData.displayName);
     if (loadedUser.token) {
 
       this.user.next(loadedUser);
       const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
       this.autoLogout(expirationDuration);
+     
     }
 
   }
-
+  
 }
 
