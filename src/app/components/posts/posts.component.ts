@@ -1,6 +1,6 @@
-import { Component, OnInit,  } from '@angular/core';
-import {  AngularFireList } from '@angular/fire/database';
-import { AddService } from '../../add/add.service';
+import {Component, OnInit} from '@angular/core';
+import {AngularFireList} from '@angular/fire/database';
+import {AddService} from '../../add/add.service';
 
 @Component({
   selector: 'app-posts',
@@ -12,27 +12,17 @@ export class PostsComponent implements OnInit {
   posts: any[];
   imageDetailList: AngularFireList<any>;
   p: number = 1;
-  
 
-  constructor(private service: AddService) {
-    
-  }
-
+  constructor(private service: AddService) {}
 
   ngOnInit() {
     this.service.getImageDetailList();
-    
-    this.service.imageDetailList.snapshotChanges().subscribe(
-      list => {
 
-        this.imageList = list.map(item => { return item.payload.val(); });
-        this.posts = Array.from(Array(Math.ceil((this.imageList.length))).keys());
-        
-      }
-    
-    );
-   
+    this.service.imageDetailList.snapshotChanges().subscribe((list) => {
+      this.imageList = list.map((item) => {
+        return item.payload.val();
+      });
+      this.posts = Array.from(Array(Math.ceil(this.imageList.length)).keys());
+    });
   }
-
 }
-

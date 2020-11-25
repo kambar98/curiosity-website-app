@@ -12,31 +12,33 @@
   padding-left: 0;
   text-align: center;
   margin-bottom: 20px;
-  
 }
-  .pagination /deep/ .ngx-pagination a:hover {
-    background-color: #7c1616;
-  }
+.pagination /deep/ .ngx-pagination a:hover {
+  background-color: #7c1616;
+}
 
-  .pagination /deep/ .ngx-pagination a, .ngx-pagination button {
-    display: block;
-    padding: 0.3rem 0.7rem;
-    border-radius: 8px;
-  }
-  .pagination /deep/ .ngx-pagination .current {
-    padding: 0.3rem 0.7rem;
-    color: #fefefe;
-    cursor: default;
-    border-radius: 8px;
-  }
-  .pagination /deep/ .ngx-pagination .pagination-next a::after, .pagination /deep/ .ngx-pagination .pagination-next.disabled::after {
-    content: '>>';
-    display: inline-block;
-    margin-left: 0.1rem;
-  }
+.pagination /deep/ .ngx-pagination a,
+.ngx-pagination button {
+  display: block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+}
+.pagination /deep/ .ngx-pagination .current {
+  padding: 0.3rem 0.7rem;
+  color: #fefefe;
+  cursor: default;
+  border-radius: 8px;
+}
+.pagination /deep/ .ngx-pagination .pagination-next a::after,
+.pagination /deep/ .ngx-pagination .pagination-next.disabled::after {
+  content: '>>';
+  display: inline-block;
+  margin-left: 0.1rem;
+}
 
-  .pagination /deep/ .ngx-pagination .pagination-previous a::before, .pagination /deep/ .ngx-pagination .pagination-previous.disabled::before {
-    content: '<<';
-    display: inline-block;
-    margin-right: 0.1rem;
-  }
+.pagination /deep/ .ngx-pagination .pagination-previous a::before,
+.pagination /deep/ .ngx-pagination .pagination-previous.disabled::before {
+  content: '<<';
+  display: inline-block;
+  margin-right: 0.1rem;
+}

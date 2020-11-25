@@ -1,150 +1,213 @@
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark mr-5 ml-5">
+  <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/Główna">Główna</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+      <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
+    </li>
 
-  <nav class="navbar navbar-expand-sm navbar-custom navbar-dark mr-5 ml-5 "  >
-    <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
-    <ul class="nav navbar-nav">
-      <li class="nav-item " routerLinkActive="active">
-        <a class="nav-link" routerLink="/Główna">Główna</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/Wyróżnione">Wyróżnione</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
-        <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
-      </li>
-      <li class="nav-item" >
-        <a class="nav-link"></a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav ml-auto ">
-      <li class="nav-item" *ngIf="!isAuth">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#rejestracja" id="userLog" (click)="onSignIn()"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
-      </li>
-      <li class="nav-item" *ngIf="!isAuth">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#logowanie" id="userLog" (click)="onLogin()"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
-      </li>
-      <li class="nav-item" *ngIf="isAuth">
-        <a class="nav-link" style="cursor:pointer" id="logOut" (click)="onlogout()"><i class="fas fa-door-open" ></i> Wyloguj się</a>
-      </li>
-    </ul>
-  </nav>
-
-
-
-
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item" *ngIf="!isAuth">
+      <a class="nav-link"
+         href="#"
+         data-toggle="modal"
+         data-target="#rejestracja"
+         id="userLog"
+         (click)="onSignIn()"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
+    </li>
+    <li class="nav-item" *ngIf="user">
+      <a class="nav-link">Witaj:  {{ user.displayName }} !</a>
+    </li>
+    <li class="nav-item" *ngIf="!isAuth">
+      <a class="nav-link"
+         href="#"
+         data-toggle="modal"
+         data-target="#logowanie"
+         id="userLog"
+         (click)="onLogin()"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
+    </li>
+    <li class="nav-item" *ngIf="isAuth">
+      <a class="nav-link"
+         style="cursor: pointer"
+         id="logOut"
+         (click)="onlogout()"><i class="fas fa-door-open"></i> Wyloguj się</a>
+    </li>
+  </ul>
+</nav>
 
 <!-- Rejestracja -->
 
-<div class="modal fade" id="rejestracja" role="dialog" tabindex="-1" aria-labelledby="RegistrationTitle" aria-hidden="true">
+<div
+  class="modal fade"
+  id="rejestracja"
+  role="dialog"
+  tabindex="-1"
+  aria-labelledby="RegistrationTitle"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="RegistrationTitle">Rejestracja</h5>
       </div>
 
-      <div class="modal-body ">
+      <div class="modal-body">
         <div class="alert alert-danger" *ngIf="error">
-          <p>{{error}}</p>
+          <p>{{ error }}</p>
         </div>
 
-        <form #authRegistration="ngForm" (ngSumbit)="onSubmit(authRegistration)" >
+        <form
+          #authRegistration="ngForm"
+          (ngSumbit)="onSubmit(authRegistration)"
+        >
           <div class="form-group">
-            <i class="fas fa-user "></i><label data-error="wrong" data-success="right" for="UserNick">Nick:</label>
-            <input type="text"
-                   id="UserNick"
-                   placeholder="Minimum 3 znaki"
-                   class="form-control validate"
-                   name="nick"
-                   ngModel
-                   required
-                   minlength="3">
+            <label data-error="wrong" data-success="right" for="UserNick"
+              >Nick:</label
+            >
+            <div class="input-wrapper">
+              <i class="fas fa-user input-icon"></i>
+              <input
+                type="text"
+                id="UserNick"
+                placeholder="Minimum 3 znaki"
+                class="form-control validate"
+                name="nick"
+                ngModel
+                required
+                minlength="3"
+              />
+            </div>
           </div>
-          <hr />
           <div class="form-group">
-            <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="UserEmail">Email:</label>
-            <input type="email"
-                   id="UserEmail"
-                   placeholder="przykład@test.pl"
-                   class="form-control validate"
-                   ngModel
-                   name="email"
-                   required
-                   email>
+            <label data-error="wrong" data-success="right" for="UserEmail"
+              >Email:</label
+            >
+
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input
+                type="email"
+                id="UserEmail"
+                placeholder="Przykład@test.pl"
+                class="form-control validate"
+                ngModel
+                name="email"
+                required
+                email
+              />
+            </div>
           </div>
-          <hr />
           <div class="form-group">
-            <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="UserPass">Hasło:</label>
-            <input type="password"
-                   id="UserPass"
-                   placeholder="Minimum 6 znaków"
-                   class="form-control validate"
-                   name="password"
-                   ngModel
-                   required
-                   minlength="6">
+            <label data-error="wrong" data-success="right" for="UserPass"
+              >Hasło:</label
+            >
+
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"> </i>
+              <input
+                type="password"
+                id="UserPass"
+                placeholder="Minimum 6 znaków"
+                class="form-control validate"
+                name="password"
+                ngModel
+                required
+                minlength="6"
+              />
+            </div>
           </div>
         </form>
-
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Zamknij</button>
-        <button type="button" class="btn btn-primary" [disabled]="!authRegistration.valid" (click)="onSubmit(authRegistration)">Zarejestruj się</button>
+        <button type="button" class="closeButton" data-dismiss="modal">
+          Zamknij
+        </button>
+        <button
+          type="button"
+          class="sendButton"
+          [disabled]="!authRegistration.valid"
+          (click)="onSubmit(authRegistration)"
+        >
+          Zarejestruj się
+        </button>
       </div>
-
-
     </div>
   </div>
 </div>
 
 <!-- Logowanie -->
-<div class="modal fade" id="logowanie" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="logowanie" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="LoginTitle">Logowanie</h5>
       </div>
 
-
-      <div class="modal-body ">
-
+      <div class="modal-body">
         <div class="alert alert-danger" *ngIf="error">
-          <p>{{error}}</p>
+          <p>{{ error }}</p>
         </div>
 
         <form #authLogin="ngForm" (ngSumbit)="onSubmit(authLogin)" id="LG">
+          <div class="form-group">
+            <label data-error="wrong" data-success="right" for="LogUserEmail"
+              >Email:</label
+            >
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"> </i>
+              <input
+                type="email"
+                id="LogUserEmail"
+                class="form-control validate"
+                ngModel
+                name="email"
+                required
+                email
+              />
+            </div>
+          </div>
+
 
           <div class="form-group">
-            <i class="fas fa-envelope "></i><label data-error="wrong" data-success="right" for="LogUserEmail">Email:</label>
-            <input type="email"
-                   id="LogUserEmail"
-                   placeholder="przykład@test.pl"
-                   class="form-control validate"
-                   ngModel
-                   name="email"
-                   required
-                   email>
-          </div>
-          <hr />
-          <div class="form-group">
-            <i class="fas fa-lock "> </i><label data-error="wrong" data-success="right" for="LogUserPass">Hasło:</label>
-            <input type="password"
-                   id="LogUserPass"
-                   placeholder="Minimum 6 znaków"
-                   class="form-control validate"
-                   ngModel
-                   required
-                   minlength="6"
-                   name="password">
+            <label data-error="wrong" data-success="right" for="LogUserPass"
+              >Hasło:</label
+            >
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"> </i>
+              <input
+                type="password"
+                id="LogUserPass"
+                class="form-control validate"
+                ngModel
+                required
+                minlength="6"
+                name="password"
+              />
+            </div>
           </div>
         </form>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" >Zamknij</button>
-        <button type="button" class="btn btn-primary" [disabled]="!authLogin.valid" (click)="onSubmit(authLogin)" >Zaloguj się</button>
+        <button type="button" class="closeButton" data-dismiss="modal">
+          Zamknij
+        </button>
+        <button
+          type="button"
+          class="sendButton"
+          [disabled]="!authLogin.valid"
+          (click)="onSubmit(authLogin)"
+        >
+          Zaloguj się
+        </button>
       </div>
     </div>
   </div>
 </div>
-

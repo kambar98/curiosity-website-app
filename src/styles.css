@@ -1,20 +1,20 @@
-.container{
-    margin-left:20%;
-    margin-right:20%;
+.container {
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
-#logo{
+#logo {
   color: #7c1616;
   transition: color 1.5s;
-  font-weight:bolder;
+  font-weight: bolder;
   font-variant: small-caps;
   font-size: 36px;
   font-family: 'Agency FB';
 }
 
-  #logo:hover {
-    color: #ff0000;
-  }
+#logo:hover {
+  color: #ff0000;
+}
 #title {
   color: #7c1616;
   transition: color 1.5s;
@@ -22,9 +22,15 @@
   font-size: 28px;
   font-family: 'Agency FB';
 }
-  #title:hover {
-    color: #ff0000;
-  }
+#title:hover {
+  color: #ff0000;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

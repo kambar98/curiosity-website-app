@@ -3,7 +3,6 @@
 }
 .nav-item.active {
   text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
- 
 }
 .nav-item:hover {
   text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
@@ -11,4 +10,111 @@
 
 #userLog:hover {
   text-shadow: 2px -2px 4px rgba(255, 0, 0, 1);
+}
+
+.modal-header {
+  background: #0f0f0f;
+  border-bottom: none;
+}
+
+
+
+.modal-body {
+  background: #222222;
+  font-family: 'Agency FB';
+  color: #7c1616;
+  font: 20px small-caps;
+}
+
+.modal-footer {
+  background: #0f0f0f;
+  border-top: none;
+}
+
+.modal-title {
+  font: 30px small-caps;
+  font-family: 'Agency FB';
+  color: #7c1616;
+  transition: color 1.5s;
+}
+
+  .modal-title:hover {
+    color: #ff0000;
+  }
+
+.input-icon {
+  position: absolute;
+  left: 8px;
+  top: calc(50% - 0.5em);
+}
+
+input {
+  padding-left: 30px;
+  
+  font: 28px;
+  letter-spacing: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+.form-control{
+
+
+}
+
+.closeButton {
+  box-shadow: inset 0px 1px 0px 0px #cf866c;
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
+  border-radius: 3px;
+  border: 1px solid #942911;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #854629;
+}
+
+  .closeButton:hover {
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color: #bc3315;
+  }
+
+  .closeButton:active {
+    position: relative;
+    top: 1px;
+  }
+
+.sendButton {
+  box-shadow: inset 0px 1px 0px 0px #54a3f7;
+  background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  background-color: #007dc1;
+  border-radius: 3px;
+  border: 1px solid #124d77;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #154682;
+}
+
+  .sendButton:hover {
+    background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+    background-color: #0061a7;
+  }
+
+  .sendButton:active {
+    position: relative;
+    top: 1px;
+  }
+
+.sendButton:disabled{
+    color:gray;
 }

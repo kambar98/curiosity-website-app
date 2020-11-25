@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {Injectable} from '@angular/core';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AddService {
   imageDetailList: AngularFireList<any>;
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {}
 
   getImageDetailList() {
     this.imageDetailList = this.firebase.list('imageDetails');

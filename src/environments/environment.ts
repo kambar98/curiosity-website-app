@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-    firebaseConfig: {
-    apiKey: "AIzaSyBoYIPz6cs3kYqEyxArWiwBJ4660DoWsYw",
-    authDomain: "curiosity-97ecf.firebaseapp.com",
-    databaseURL: "https://curiosity-97ecf.firebaseio.com",
-    projectId: "curiosity-97ecf",
-    storageBucket: "curiosity-97ecf.appspot.com",
-    messagingSenderId: "275538069336",
-    appId: "1:275538069336:web:ac9f26e1bf4b3ba438472d",
-    measurementId: "G-C2NBXPECVJ"
-  }
+  firebaseConfig: {
+    apiKey: 'AIzaSyBoYIPz6cs3kYqEyxArWiwBJ4660DoWsYw',
+    authDomain: 'curiosity-97ecf.firebaseapp.com',
+    databaseURL: 'https://curiosity-97ecf.firebaseio.com',
+    projectId: 'curiosity-97ecf',
+    storageBucket: 'curiosity-97ecf.appspot.com',
+    messagingSenderId: '275538069336',
+    appId: '1:275538069336:web:ac9f26e1bf4b3ba438472d',
+    measurementId: 'G-C2NBXPECVJ',
+  },
 };
 
 /*
