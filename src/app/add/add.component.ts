@@ -13,17 +13,25 @@ export class AddComponent implements OnInit {
   imgSrc: string;
   selectedImage: any = null;
   isSubmitted: boolean;
+  isSubmittedStory: boolean;
+  text: any = null;
 
   formTemplate = new FormGroup({
     caption: new FormControl('', Validators.required),
     imageUrl: new FormControl('', Validators.required),
+/*    likes: new FormControl(''),*/
   });
 
+  storiesTemplate = new FormGroup({
+    title: new FormControl('', Validators.required),
+    storyText: new FormControl('', Validators.required),
+  })
   constructor(private storage: AngularFireStorage, private service: AddService) {}
 
   ngOnInit() {
     this.service.getImageDetailList();
     this.resetForm();
+    this.service.getstoriesList();
   }
 
   showPreview(event: any) {
@@ -37,6 +45,7 @@ export class AddComponent implements OnInit {
       this.selectedImage = null;
     }
   }
+
 
   onSubmit(formValue) {
     this.isSubmitted = true;
@@ -58,6 +67,24 @@ export class AddComponent implements OnInit {
         .subscribe();
     }
   }
+
+  onSend(formValue) {
+    this.isSubmitted = true;
+    if (this.storiesTemplate.valid) {
+      var filePath = `story/${new Date().getTime()}`;
+      this.storage
+        .upload(filePath, this.text)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+              this.service.inserstoriesDetails(formValue);
+              this.resetFormStory();
+          }),
+        )
+        .subscribe();
+    }
+  }
+
   get formControls() {
     return this.formTemplate['controls'];
   }
@@ -67,9 +94,20 @@ export class AddComponent implements OnInit {
     this.formTemplate.setValue({
       caption: '',
       imageUrl: '',
+      
     });
     this.imgSrc = '/assets/image_placeholder.jpg';
     this.selectedImage = null;
     this.isSubmitted = false;
+  }
+
+  resetFormStory() {
+    this.storiesTemplate.reset();
+    this.storiesTemplate.setValue({
+      title: '',
+      storyText: '',
+
+    });
+    this.isSubmittedStory = false;
   }
 }

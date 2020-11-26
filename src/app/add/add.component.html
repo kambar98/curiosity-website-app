@@ -1,50 +1,86 @@
-<div
-  class="card"
-  style="
+<div class="card"
+     style="
     width: 25rem;
     margin-top: 2rem;
     margin-left: 11rem;
     background-color: #1f1f1f;
-  "
->
+  ">
   <div class="card-body">
+    <div id="title">Dodaj ciekawostke</div>
     <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
       <div class="text-center">
-        <img
-          [src]="imgSrc"
-          style="width: 350px; height: 250px; border: 2px solid black"
-          (click)="fileUploader.click()"
-        />
+        <img [src]="imgSrc"
+             style="width: 350px; height: 250px; border: 2px solid black"
+             (click)="fileUploader.click()" />
       </div>
       <div class="form-group">
-        <input
-          type="file"
-          accept="image/*"
-          class="form-control mt-4"
-          #fileUploader
-          formControlName="imageUrl"
-          (change)="showPreview($event)"
-          style="padding-bottom: 2.3rem; border: 2px solid black"
-          required
-        />
+        <input type="file"
+               accept="image/*"
+               class="form-control mt-4"
+               #fileUploader
+               formControlName="imageUrl"
+               (change)="showPreview($event)"
+               style="padding-bottom: 2.3rem; border: 2px solid black"
+               required />
       </div>
       <div class="form-group">
-        <input
-          class="form-control"
-          formControlName="caption"
-          placeholder="Tytuł"
-          style="border: 2px solid black"
-          required
-        />
+        <input class="form-control"
+               formControlName="caption"
+               placeholder="Tytuł (minimum 3 znaki)"
+               style="border: 2px solid black"
+               required
+               minlength="3" />
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <button
-            type="submit"
-            class="btn btn-success btn-block float-right"
-            [disabled]="!formTemplate.valid"
-            style="border: 2px solid black"
-          >
+          <button type="submit"
+                  class="btn btn-success btn-block float-right"
+                  [disabled]="!formTemplate.valid"
+                  style="border: 2px solid black">
+            Opublikuj
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card"
+     style="
+    width: 25rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 11rem;
+    background-color: #1f1f1f;
+  ">
+  
+  <div class="card-body" >
+    <div id="title">Dodaj historie </div>
+    <form [formGroup]="storiesTemplate" (submit)="onSend(storiesTemplate.value)">
+      <div class="form-group">
+        <input class="form-control"
+               formControlName="title"
+               placeholder="Tytuł (minimum 3 znaki)"
+               style="border: 2px solid black"
+               required
+               minlength="3" />
+      </div>
+
+      <div class="form-group">
+        <textarea class="form-control"
+                  formControlName="storyText"
+                  rows="10"
+                  placeholder="Tekst (minimum 200 znaków)"
+                  style="border: 2px solid black"
+                  required
+                  minlength="200"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <button type="submit"
+                  class="btn btn-success btn-block float-right"
+                  [disabled]="!storiesTemplate.valid"
+                  style="border: 2px solid black">
             Opublikuj
           </button>
         </div>

@@ -6,6 +6,8 @@ import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 })
 export class AddService {
   imageDetailList: AngularFireList<any>;
+  storiesList: AngularFireList<any>;
+
 
   constructor(private firebase: AngularFireDatabase) {}
 
@@ -15,5 +17,12 @@ export class AddService {
 
   insertImageDetails(imageDetails) {
     this.imageDetailList.push(imageDetails);
+  }
+  getstoriesList() {
+    this.storiesList = this.firebase.list('Stories');
+  }
+
+  inserstoriesDetails(storiesDetails) {
+    this.storiesList.push(storiesDetails);
   }
 }

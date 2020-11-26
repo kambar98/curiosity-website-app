@@ -1,0 +1,26 @@
+<div class="row mt-5"
+     style="background-color: #1f1f1f; color: silver;  margin: auto"
+     *ngIf="stories">
+  <div *ngFor="let i of posts | paginate: {itemsPerPage: 3, currentPage: p}">
+    <div class="col-sm mb-3" id="title">{{ stories[i].title }}</div>
+    <div class="col-sm"
+         style="    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+">
+      {{ stories[i].storyText }}
+    </div>
+
+    <div class="col-sm" style="background-color: #2e2e2e; height: 5rem"></div>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; "
+     *ngIf="stories && stories.length > 0">
+  <pagination-controls class="pagination"
+                       (pageChange)="p = $event"
+                       previousLabel=""
+                       nextLabel=""
+                       maxSize="5"></pagination-controls>
+</div>
