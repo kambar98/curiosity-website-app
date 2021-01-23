@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container" id="mainContainer">
   <div class="d-flex flex-column">
     <app-header></app-header>
-    <div class="container-fluid mr-5 ml-5">
+    <div class="container-fluid mr-5 ml-5" id="contentsContainer" >
       <div class="row">
-        <div class="col-8 px-0">
+        <div class="col-8 px-0" id="posts">
           <router-outlet></router-outlet>
         </div>
-        <div class="col-4 pr-5">
+        <div class="col-4 pr-5" id="sidebar">
           <app-sidebar></app-sidebar>
         </div>
       </div>

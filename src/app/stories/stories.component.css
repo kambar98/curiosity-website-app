@@ -70,3 +70,14 @@
     padding-left: 5rem;
   }
 }
+
+@media screen and (max-width: 576px) {
+
+  #longStories {
+    width: 30rem !important;
+  }
+  .pagination {
+    padding-left: 0;
+  }
+}
+

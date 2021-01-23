@@ -34,3 +34,35 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+@media screen and (max-width: 767px) {
+
+  #logo {
+    font-size: 30px;
+  }
+  #title {
+    font-size: 28px;
+  }
+  #sidebar{
+      display:none !important;
+  }
+}
+@media screen and (max-width: 576px) {
+
+  #mainContainer {
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-right:0 !important;
+    padding-left:0 !important;
+  }
+  #contentsContainer{
+      margin-left:0 !important;
+      margin-right:0 !important;
+          
+  }
+  #posts {
+      padding-left:0 !important;
+      padding-right:0 !important;
+      max-width: 100% !important;
+  }
+}

@@ -43,6 +43,19 @@
   margin-right: 0.1rem;
 }
 
+#Post {
+  background-color: #1f1f1f;
+  color: silver;
+  width: 37rem;
+  margin: auto;
+}
+
+#spacePost {
+  background-color: #2e2e2e;
+  height: 5rem;
+  width:37rem;
+}
+
 @media screen and (max-width: 992px) {
   #Post {
     width: 37rem !important;
@@ -65,5 +78,19 @@
   }
   .pagination {
     padding-left: 5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  #Post {
+    width: 30rem !important;
+  }
+
+  #spacePost {
+    width: 30rem !important;
+  }
+  .pagination {
+    padding-left: 0;
   }
 }
