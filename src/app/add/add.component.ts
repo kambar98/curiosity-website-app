@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
-import {AddService} from './add.service';
+import { AddService } from './add.service';
 
 @Component({
   selector: 'app-add',
@@ -16,23 +16,31 @@ export class AddComponent implements OnInit {
   isSubmittedStory: boolean;
   text: any = null;
 
-  formTemplate = new FormGroup({
-    caption: new FormControl('', Validators.required),
-    imageUrl: new FormControl('', Validators.required),
-/*    likes: new FormControl(''),*/
-  });
-
-  storiesTemplate = new FormGroup({
-    title: new FormControl('', Validators.required),
-    storyText: new FormControl('', Validators.required),
-  })
   constructor(private storage: AngularFireStorage, private service: AddService) {}
 
+  formTemplate: FormGroup;
+  storiesTemplate: FormGroup;
+
   ngOnInit() {
+
+
+   this.formTemplate = new FormGroup({
+      caption: new FormControl('', Validators.required),
+      imageUrl: new FormControl('', Validators.required),
+      /*    likes: new FormControl(''),*/
+    });
+
+    this.storiesTemplate = new FormGroup({
+      title: new FormControl('', Validators.required),
+      storyText: new FormControl('', [Validators.required, Validators.minLength(200)]),
+    })
+
     this.service.getImageDetailList();
     this.resetForm();
     this.service.getstoriesList();
   }
+
+
 
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {

@@ -30,6 +30,9 @@
                style="border: 2px solid black"
                required
                minlength="3" />
+        <div class="alert alert-danger mt-1"
+             *ngIf="formTemplate.controls['caption'].invalid
+             && formTemplate.controls['caption'].touched ">Tytuł jest za krótki!</div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -64,16 +67,24 @@
                style="border: 2px solid black"
                required
                minlength="3" />
+        <div  class="alert alert-danger mt-1"
+             *ngIf="storiesTemplate.controls['title'].invalid
+             && storiesTemplate.controls['title'].touched ">Tytuł jest za krótki!</div>
       </div>
-
+      
       <div class="form-group">
         <textarea class="form-control"
+                  
+                  id="storyText"
                   formControlName="storyText"
                   rows="10"
                   placeholder="Tekst (minimum 200 znaków)"
                   style="border: 2px solid black"
                   required
                   minlength="200"></textarea>
+        <div  class="alert alert-danger mt-1"
+            *ngIf="storiesTemplate.controls['storyText'].invalid
+             && storiesTemplate.controls['storyText'].touched ">Tekst ma zawierać minimum 200 znaków!</div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">

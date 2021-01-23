@@ -118,3 +118,11 @@ input {
 .sendButton:disabled{
     color:gray;
 }
+
+.form-control.ng-invalid.ng-touched {
+  border: 2px solid red !important;
+}
+
+.form-control.ng-valid {
+  border: 2px solid green !important;
+}
