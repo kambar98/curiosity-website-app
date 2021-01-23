@@ -126,3 +126,69 @@ input {
 .form-control.ng-valid {
   border: 2px solid green !important;
 }
+
+#PhoneNav{
+  cursor:pointer;
+  display:none;
+
+}
+
+
+#userInfo {
+  cursor: default;
+}
+
+.dropdown-item {
+  color: #b3b3b3 !important;
+  text-shadow:none !important;
+}
+
+  .dropdown-item:hover {
+    color: #b3b3b3 !important;
+    text-shadow: 2px -2px 4px rgba(255, 0, 0, 1) !important;
+  }
+  .dropdown-item:hover {
+    background:#000000 !important;
+  }
+
+.dropdown-menu {
+  background: #0d0d0d !important;
+}
+
+@media screen and (min-width: 767px) {
+  .dropdown-menu{
+      display:none;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  #desktopMain {
+    display: none;
+  }
+  #desktopStory {
+    display: none;
+  }
+  #desktopAdd {
+    display: none;
+  }
+  #desktopLogin {
+    display: none;
+    cursor: pointer;
+  }
+  #desktopRegister{
+      display:none;
+      cursor:pointer;
+  }
+  #desktopLogout {
+    display: none;
+    cursor: pointer;
+  }
+  #PhoneNav {
+    display: block;
+  }
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+
+  }

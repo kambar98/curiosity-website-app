@@ -42,3 +42,28 @@
   display: inline-block;
   margin-right: 0.1rem;
 }
+
+@media screen and (max-width: 992px) {
+  #Post {
+    width: 37rem !important;
+  }
+  #spacePost {
+    width: 37rem !important;
+  }
+  .pagination {
+    padding-left: 8rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #Post {
+    width: 26rem !important;
+  }
+
+  #spacePost {
+    width: 26rem !important;
+  }
+  .pagination {
+    padding-left: 5rem;
+  }
+}

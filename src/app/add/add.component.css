@@ -9,3 +9,16 @@
 .form-control.ng-valid{
   border: 3px solid green !important;
 }
+
+@media screen and (max-width: 992px) {
+  .card {
+    margin-left: 6rem !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 26rem !important;
+    margin-left: 0 !important;
+  }
+}

@@ -2,6 +2,7 @@
   class="row mt-5"
   style="background-color: #1f1f1f; color: silver; width: 31rem; margin: auto"
   *ngIf="imageList"
+  id="Post"
 >
   <div *ngFor="let i of posts | paginate: {itemsPerPage: 5, currentPage: p}">
     <div class="col-sm mb-3" id="title">{{ imageList[i].caption }}</div>
@@ -12,7 +13,7 @@
            style="width: 32rem; height: 25rem" />
     </div>
 
-    <div class="col-sm" style="background-color: #2e2e2e; height: 5rem"></div>
+    <div class="col-sm" style="background-color: #2e2e2e; height: 5rem" id="spacePost"></div>
   </div>
 </div>
 

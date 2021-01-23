@@ -1,40 +1,72 @@
-<nav class="navbar navbar-expand-sm navbar-custom navbar-dark mr-5 ml-5">
+<nav class="navbar navbar-expand-sm navbar-custom navbar-dark mr-5 ml-5" >
   <a class="navbar-brand" routerLink="/Główna" id="logo">Curiosity</a>
+
   <ul class="nav navbar-nav">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" routerLink="/Główna">Główna</a>
+    <li class="nav-item" routerLinkActive="active" id="desktopMain">
+      <a class="nav-link" routerLink="/Główna" >Główna</a>
     </li>
-    <li class="nav-item" routerLinkActive="active">
+    <li class="nav-item" routerLinkActive="active" id="desktopStory">
       <a class="nav-link" routerLink="/Historie">Historie</a>
     </li>
-    <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+    <li class="nav-item" routerLinkActive="active" *ngIf="isAuth" id="desktopAdd">
       <a class="nav-link" routerLink="/Dodaj">Dodaj</a>
     </li>
-
+    <li class="nav-item dropdown" >
+      <a class="nav-link dropdown-toggle"  id="PhoneNav"  data-toggle="dropdown" data-display="relative" aria-haspopup="true" aria-expanded="false">
+        Menu
+      </a>
+      <div class="dropdown-menu"  >
+        <a class="dropdown-item" routerLink="/Główna">Główna</a>
+        <a class="dropdown-item" routerLink="/Historie">Historie</a>
+        <a class="dropdown-item" routerLink="/Dodaj" *ngIf="isAuth">Dodaj</a>
+        <a class="dropdown-item"
+           *ngIf="!isAuth"
+           style="cursor: pointer"
+           data-toggle="modal"
+           data-target="#logowanie"
+           id="userLog"
+           (click)="onLogin()">
+          <i class="fas fa-sign-in-alt"></i> Zaloguj się
+        </a>
+        <a class="dropdown-item"
+           *ngIf="!isAuth"
+           style="cursor: pointer"
+           data-toggle="modal"
+           data-target="#rejestracja"
+           id="userLog"
+           (click)="onSignIn()"
+           >
+          <i class="fas fa-user-plus"></i> Zarejestruj się
+        </a>
+        <a class="dropdown-item"
+           style="cursor: pointer"
+           *ngIf="isAuth"
+           id="logOut"
+           (click)="onlogout()"><i class="fas fa-door-open"></i> Wyloguj się</a>
+      </div>
+    </li>
   </ul>
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item" *ngIf="!isAuth">
+  <ul class="nav navbar-nav ml-auto" >
+    <li class="nav-item" *ngIf="!isAuth" id="desktopRegister">
       <a class="nav-link"
-         href="#"
          data-toggle="modal"
          data-target="#rejestracja"
          id="userLog"
          (click)="onSignIn()"><i class="fas fa-user-plus"></i> Zarejestruj się</a>
     </li>
-    <li class="nav-item" *ngIf="user">
+    <li class="nav-item" *ngIf="user" id="userInfo">
       <a class="nav-link">Witaj:  {{ user.displayName }} !</a>
     </li>
-    <li class="nav-item" *ngIf="!isAuth">
+    <li class="nav-item" *ngIf="!isAuth" id="desktopLogin">
       <a class="nav-link"
-         href="#"
          data-toggle="modal"
          data-target="#logowanie"
          id="userLog"
          (click)="onLogin()"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
     </li>
-    <li class="nav-item" *ngIf="isAuth">
+    <li class="nav-item" *ngIf="isAuth" id="desktopLogout" >
       <a class="nav-link"
-         style="cursor: pointer"
+         style="cursor: pointer;"
          id="logOut"
          (click)="onlogout()"><i class="fas fa-door-open"></i> Wyloguj się</a>
     </li>
